@@ -1,4 +1,7 @@
-﻿using System;
+﻿using log4net;
+using log4net.Config;
+using System;
+using System.Reflection;
 
 namespace Log4NetExample
 {
@@ -6,7 +9,12 @@ namespace Log4NetExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(logRepository, new System.IO.FileInfo("log4net.config"));
+            ILog log = LogManager.GetLogger(typeof(Program));
+
+            log.Info("------- Hello World! -------------------");
+
         }
     }
 }
