@@ -12,8 +12,10 @@ namespace Log4NetExample
             var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
             XmlConfigurator.Configure(logRepository, new System.IO.FileInfo("log4net.config"));
             ILog log = LogManager.GetLogger(typeof(Program));
+            //ILog log2 = LogManager.GetLogger("log2");
 
             log.Info("------- Hello World! -------------------");
+            //log2.Info("------- Hello World! -------------------");
 
         }
     }

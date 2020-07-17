@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Log4NetExample", "src\Log4N
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D13F90C-456F-4940-BEA0-557477EF21D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzExample", "src\QuartzExample\QuartzExample.csproj", "{C1D28CE0-6C80-4921-A9A6-56636249ED16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{6D44A176-66BF-4BD0-9F63-7A9E4CA7079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D44A176-66BF-4BD0-9F63-7A9E4CA7079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D44A176-66BF-4BD0-9F63-7A9E4CA7079C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D28CE0-6C80-4921-A9A6-56636249ED16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D28CE0-6C80-4921-A9A6-56636249ED16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D28CE0-6C80-4921-A9A6-56636249ED16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D28CE0-6C80-4921-A9A6-56636249ED16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6D44A176-66BF-4BD0-9F63-7A9E4CA7079C} = {4D13F90C-456F-4940-BEA0-557477EF21D0}
+		{C1D28CE0-6C80-4921-A9A6-56636249ED16} = {4D13F90C-456F-4940-BEA0-557477EF21D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9AC7709-06F5-41A8-83B1-03AA58D1F2C3}
