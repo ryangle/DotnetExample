@@ -18,13 +18,13 @@ namespace QuartzExample
         public Task StartAsync(CancellationToken cancellationToken)
         {
             return _jobManager.ScheduleAsync<HelloJob>(
-                 job =>
+                 jobBuilder =>
                  {
-                     job.WithIdentity("job1", "group1");
+                     jobBuilder.WithIdentity("job1", "group1");
                  },
-                 trigger =>
+                 triggerBuilder =>
                  {
-                     trigger
+                     triggerBuilder
                      .WithIdentity("trigger1", "group1")
                      .StartNow()
                      .WithSimpleSchedule(x => x
