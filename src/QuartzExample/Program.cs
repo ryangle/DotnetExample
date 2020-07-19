@@ -17,7 +17,7 @@ namespace QuartzExample
                    services.AddTransient<HelloJob>();
 
                    services.AddTransient<IJobFactory, QuartzJobFactory>();
-                   services.AddSingleton<JobManager>();
+                   services.AddSingleton<DefaultSchedulerJobManager>();
                    services.AddSingleton<IHostedService, SchedulerHostService>();
 
                    services.AddSingleton<IHostedService, JobsConfigService>();

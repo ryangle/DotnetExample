@@ -13,9 +13,9 @@ namespace QuartzExample
 {
     public class SchedulerHostService : IHostedService
     {
-        private JobManager _jobManager;
+        private DefaultSchedulerJobManager _jobManager;
 
-        public SchedulerHostService(JobManager jobManager)
+        public SchedulerHostService(DefaultSchedulerJobManager jobManager)
         {
             _jobManager = jobManager;
         }

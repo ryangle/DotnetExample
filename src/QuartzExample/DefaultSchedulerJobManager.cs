@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace QuartzExample
 {
-    public class JobManager
+    public class DefaultSchedulerJobManager
     {
         private IScheduler _scheduler;
         private IJobFactory _jobFactory;
 
-        public JobManager(IJobFactory jobFactory)
+        public DefaultSchedulerJobManager(IJobFactory jobFactory)
         {
             _jobFactory = jobFactory;
         }
