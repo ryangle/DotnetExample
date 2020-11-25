@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package race;
+
+service Racer {
+  rpc ReadySetGo (stream RaceMessage) returns (stream RaceMessage);
+}
+
+message RaceMessage {
+  int32 count = 1;
+  string message = 2;
+}

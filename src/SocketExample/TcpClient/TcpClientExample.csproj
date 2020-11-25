@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SocketExapmle\SocketCommon\SocketCommon.csproj" />
     <ProjectReference Include="..\SocketCommon\SocketCommon.csproj" />
   </ItemGroup>
 
