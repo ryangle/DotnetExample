@@ -8,9 +8,9 @@
   <ItemGroup>
     <Protobuf Include="..\Proto\race.proto" GrpcServices="Client" Link="Proto\race.proto" />
 
-    <PackageReference Include="Grpc.Net.Client" Version="2.33.1" />
-    <PackageReference Include="Google.Protobuf" Version="3.14.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.33.1" PrivateAssets="All" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.37.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.16.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.37.1" PrivateAssets="All" />
     <!--<PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />-->
     <PackageReference Include="Microsoft.Win32.Registry.AccessControl" Version="5.0.0" />
   </ItemGroup>
