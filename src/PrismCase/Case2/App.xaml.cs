@@ -19,9 +19,8 @@ namespace Case2
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
+            return Container.Resolve<Shell1View>();
         }
-
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
 

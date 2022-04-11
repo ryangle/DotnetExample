@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Case2.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Login.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login1 : UserControl
     {
-        public MainWindow()
+        public Login1()
         {
             InitializeComponent();
         }
