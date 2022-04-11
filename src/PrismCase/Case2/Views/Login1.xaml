@@ -12,7 +12,6 @@
              Background="BlueViolet"
              d:DesignHeight="800" d:DesignWidth="400">
     <StackPanel Margin="20">
-        <TextBlock Text="username" Width="100" Height="30" />
         <Button Command="{Binding LoginCommand}" Content="登  录" Width="100" Height="30" />
     </StackPanel>
 </UserControl>

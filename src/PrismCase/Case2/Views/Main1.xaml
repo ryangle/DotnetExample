@@ -5,12 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Case2"
         xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
              Background="CadetBlue"
         Height="400" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <StackPanel>
-        <TextBlock Text="Main1"></TextBlock>
         <Button Command="{Binding ExitCommand}" Content="退  出" Width="100" Height="30" />
+        <ContentControl prism:RegionManager.RegionName="MainRegion"/>
     </StackPanel>
 </UserControl>

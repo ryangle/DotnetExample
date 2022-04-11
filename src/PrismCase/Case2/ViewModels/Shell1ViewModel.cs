@@ -12,7 +12,7 @@ public class Shell1ViewModel : BindableBase
     private IRegionManager _regionManager;
     private IContainerProvider _containerProvider;
     private IEventAggregator _eventAggregator;
-    private IRegion _mainContentRegion;
+    private IRegion _shellRegion;
     private Login1 _loginView;
     private Main1 _mainView;
     public DelegateCommand LoadedCommand { get; private set; }
@@ -29,21 +29,21 @@ public class Shell1ViewModel : BindableBase
     }
     private void ExecuteLoaded()
     {
-        _mainContentRegion = _regionManager.Regions["MainContentRegion"];
-        _mainContentRegion.Add(_loginView);
-        _mainContentRegion.Add(_mainView);
+        _shellRegion = _regionManager.Regions["ShellRegion"];
+        _shellRegion.Add(_loginView);
+        _shellRegion.Add(_mainView);
     }
     private void LoginMessageHandler(bool loginState)
     {
         if (loginState)
         {
             //_mainContentRegion.Deactivate(_loginView);
-            _mainContentRegion.Activate(_mainView);
+            _shellRegion.Activate(_mainView);
         }
         else
         {
             //_mainContentRegion.Deactivate(_mainView);
-            _mainContentRegion.Activate(_loginView);
+            _shellRegion.Activate(_loginView);
         }
     }
 }

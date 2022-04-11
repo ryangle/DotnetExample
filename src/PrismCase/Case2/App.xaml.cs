@@ -19,11 +19,14 @@ namespace Case2
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<Shell1View>();
+            return Container.Resolve<Shell1>();
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<AllContent>();
+            containerRegistry.RegisterForNavigation<Login1>();
+            containerRegistry.RegisterForNavigation<Main1>();
+            containerRegistry.RegisterForNavigation<Shell1>();
         }
     }
 }

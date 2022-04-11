@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Case2.Views.AllContent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Case2"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        Background="CadetBlue">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,20">
+静夜思<LineBreak/>
+作者：李白<LineBreak/>
+<LineBreak/>
+（明代版）<LineBreak/>
+床前明月光，<LineBreak/>
+疑是地上霜。<LineBreak/>
+举头望明月，<LineBreak/>
+低头思故乡。<LineBreak/>
+<LineBreak/>
+（宋代版）<LineBreak/>
+床前看月光，<LineBreak/>
+疑是地上霜。<LineBreak/>
+举头望山月，<LineBreak/>
+低头思故乡。
+        </TextBlock>
+    </StackPanel>
+</UserControl>
