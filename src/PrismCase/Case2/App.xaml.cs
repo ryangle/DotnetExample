@@ -1,4 +1,5 @@
-﻿using Case2.Views;
+﻿using Case2.ViewModels;
+using Case2.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
 using System;
@@ -19,7 +20,7 @@ namespace Case2
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<Shell1>();
+            return Container.Resolve<Main2>();
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -27,6 +28,19 @@ namespace Case2
             containerRegistry.RegisterForNavigation<Login1>();
             containerRegistry.RegisterForNavigation<Main1>();
             containerRegistry.RegisterForNavigation<Shell1>();
+        }
+        protected override void InitializeShell(Window shell)
+        {
+            Login2 loginView = Container.Resolve<Login2>();
+            
+            if (loginView.ShowDialog() == true)
+            {
+                base.InitializeShell(shell);
+            }
+            else
+            {
+                Application.Current.Shutdown(-1);
+            }
         }
     }
 }

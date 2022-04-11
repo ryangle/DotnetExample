@@ -63,3 +63,51 @@ _eventAggregator.GetEvent<LoginEvent>().Subscribe(LoginMessageHandler);
     }
 ```
 
+## 重写PrismApplication的InitializeShell方法
+
+1. Main2为主窗口，继承自Window类。
+
+```csharp
+Container.Resolve<Main2>();
+```
+
+2. Login2为登录窗口，继承自Window类。
+
+在Login2ViewModel中，增加Event LoginComplete，并在登录按钮的处理方法中，激活LoginComplete:
+
+```csharp
+    public event Action<bool> LoginComplete;
+
+    private void ExecuteLogin()
+    {
+        LoginComplete?.Invoke(true);
+    }
+```
+
+3. 在Login2的构造函数（Login2.xaml.cs文件）中注册LoginComplete事件，为DialogResult赋值：
+
+```csharp
+var vm = DataContext as Login2ViewModel;
+if (vm != null)
+{
+    vm.LoginComplete += result => DialogResult = result;
+}
+```
+
+4. 在App.xaml.cs中重写InitializeShell：
+
+```csharp
+protected override void InitializeShell(Window shell)
+ {
+     Login2 loginView = Container.Resolve<Login2>();
+
+     if (loginView.ShowDialog() == true)
+     {
+         base.InitializeShell(shell);
+     }
+     else
+     {
+         Application.Current.Shutdown(-1);
+     }
+ }
+ ```
