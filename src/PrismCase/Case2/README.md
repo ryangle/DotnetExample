@@ -2,7 +2,7 @@
 
 窗口跳转的几个实现思路
 
-## 使用Prism的Region
+## 方案1：使用Prism的Region
 
 1. Shell1为主窗口，继承自Window类。
 
@@ -63,7 +63,7 @@ _eventAggregator.GetEvent<LoginEvent>().Subscribe(LoginMessageHandler);
     }
 ```
 
-## 重写PrismApplication的InitializeShell方法
+## 方案2：重写PrismApplication的InitializeShell方法
 
 1. Main2为主窗口，继承自Window类。
 
@@ -111,3 +111,44 @@ protected override void InitializeShell(Window shell)
      }
  }
  ```
+
+## 方案3：与方案2类似，不同之处在于使用Prism的DialogService处理登录窗口，不需要在Login3的后台代码中回传结果。
+
+1. 继续使用Main2作为主窗口
+2. Login3为登录窗口，因为使用DialogService，不能继承自Window类。Login3ViewModel实现IDialogAware接口，并处理登录命令。
+
+```csharp
+private void ExecuteLogin()
+{
+    var buttonResult = ButtonResult.OK;
+    var parameters = new DialogParameters();
+    RequestClose?.Invoke(new DialogResult(buttonResult, parameters));
+}
+```
+
+3. 注册Login3
+
+```csharp
+containerRegistry.RegisterDialog<Login3>();
+```
+
+4. 处理结果
+
+```csharp
+Login3 loginView = Container.Resolve<Login3>();
+var dialogService = Container.Resolve<DialogService>();
+var loginsucess = true;
+dialogService.ShowDialog("Login3", (r) =>
+{
+    loginsucess = r.Result == ButtonResult.OK;
+});
+if (loginsucess)
+{
+    base.InitializeShell(shell);
+}
+else
+{
+    Application.Current.Shutdown(-1);
+}
+```
+

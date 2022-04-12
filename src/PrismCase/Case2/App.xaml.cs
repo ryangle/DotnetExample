@@ -2,6 +2,7 @@
 using Case2.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,9 @@ namespace Case2
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<Main2>();
+            //return Container.Resolve<Shell1>();//方案1
+            return Container.Resolve<Main2>();//方案2、3
+
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -28,12 +31,33 @@ namespace Case2
             containerRegistry.RegisterForNavigation<Login1>();
             containerRegistry.RegisterForNavigation<Main1>();
             containerRegistry.RegisterForNavigation<Shell1>();
+
+            containerRegistry.RegisterDialog<Login3>();
         }
         protected override void InitializeShell(Window shell)
         {
-            Login2 loginView = Container.Resolve<Login2>();
-            
-            if (loginView.ShowDialog() == true)
+            #region 方案2
+            //Login2 loginView = Container.Resolve<Login2>();
+
+            //if (loginView.ShowDialog() == true)
+            //{
+            //    base.InitializeShell(shell);
+            //}
+            //else
+            //{
+            //    Application.Current.Shutdown(-1);
+            //}
+            #endregion
+
+            #region 方案3
+            Login3 loginView = Container.Resolve<Login3>();
+            var dialogService = Container.Resolve<DialogService>();
+            var loginsucess = true;
+            dialogService.ShowDialog("Login3", (r) =>
+            {
+                loginsucess = r.Result == ButtonResult.OK;
+            });
+            if (loginsucess)
             {
                 base.InitializeShell(shell);
             }
@@ -41,6 +65,7 @@ namespace Case2
             {
                 Application.Current.Shutdown(-1);
             }
+            #endregion
         }
     }
 }
